@@ -4,9 +4,9 @@ from .models import Post
 
 # walker/views.py.
 def home(request):
-    post_list = Post.objects.all()
+    post_list = Post.objects.all().order_by('created_date')
     return render(request, 'home.html',{
-        'post_list':post_list,
+        'post_list':post_list
     })
 def post_detail(request, pk):
     post = Post.objects.get(pk = pk)

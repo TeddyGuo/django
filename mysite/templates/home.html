@@ -15,14 +15,14 @@
             </h1>
         </div>
         <div class="container">
-            {% for post in post_list%}
+            {% for post in post_list %}
             <div class="post-wrapper">
                 <div class="post">
                     <div class="post-heading">
                         <h2 class="title">
                             <a href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a>
                         </h2>
-                        <div class="date">{{post.created_at | date:"m/d/Y"}}</div>
+                        <div class="date">{{post.created_date | date:"m/d/Y"}}</div>
                     </div>
                     {% if post.photo %}
                      <div class="thumbnail">
