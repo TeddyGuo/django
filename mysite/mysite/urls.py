@@ -13,15 +13,15 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url
+from django.conf.urls import url, include
 from django.contrib import admin
 #import views function from walker app.
-from walker.views import hello_world, home, post_detail
+from walker.views import home, post_detail
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     #首頁（正規表達式 ^$）
     url(r'^$',home),
-    url(r'^hello/$',hello_world),
+    url(r'', include('walker.urls')),
     url(r'^post/(?P<pk>\d+)/$', post_detail, name='post_detail'),
 ]
