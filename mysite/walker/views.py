@@ -5,11 +5,9 @@ from .models import Post
 # walker/views.py.
 def home(request):
     post_list = Post.objects.all()
-    return render(request, 'home.html',{
+    return render(request, '../templates/home.html',{
         'post_list':post_list,
     })
 def post_detail(request, pk):
     post = Post.objects.get(pk = pk)
-    return render(request, 'post.html', {'post':post})
-def post_list(request):
-    return render(request, '../templates/post_list.html', {})
+    return render(request, '../templates/post.html', {'post':post})

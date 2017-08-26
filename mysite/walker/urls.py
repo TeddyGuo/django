@@ -2,5 +2,7 @@ from django.conf.urls import url
 from . import views
 
 urlpattern = [
-    url(r'^$', views.post_list, name='post_list'),
+    #首頁（正規表達式 ^$）
+    url(r'^$', views.home, name='home'),
+    url(r'^post/(?P<pk>\d+)/$', post_detail, name='post_detail'),
 ]

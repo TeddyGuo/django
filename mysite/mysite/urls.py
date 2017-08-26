@@ -20,8 +20,5 @@ from walker.views import home, post_detail
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    #首頁（正規表達式 ^$）
-    url(r'^$',home),
     url(r'', include('walker.urls')),
-    url(r'^post/(?P<pk>\d+)/$', post_detail, name='post_detail'),
 ]
