@@ -16,12 +16,8 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 #import views function from walker app.
-from walker.views import home, post_detail
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    #url(r'', include('walker.urls')),
-    #首頁（正規表達式 ^$）
-    url(r'^$', home, name = 'home'),
-    url(r'^post/(?P<pk>\d+)/$', post_detail, name = 'post_detail'),
+    url(r'', include('walker.urls')),
 ]
