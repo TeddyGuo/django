@@ -1,47 +1,77 @@
 <!--home.html-->
+{% load staticfiles %}
+
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
         <title>A Teddy's Jungo Life</title>
-        <link href="//fonts.googleapis.com/css?family=Lemon" rel="stylesheet" type="text/css">
-        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-        <link href="//djangogirlstaipei.github.io/assets/css/style.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet"> 
+        <link rel="stylesheet" href="{% static 'css/walker.css' %}"/> 
+        <style>
+            div.page-header > h1{
+                padding: 20px 20px 8px 20px;
+                margin-top: 0px;
+            }
+            div.page-header{
+                background-color: rgba(  241, 196, 15, 0.8);
+                margin-top: 0px;
+            }
+            h1, h2, h3, h4{
+                font-family: 'Righteous', cursive;
+            }
+            footer{
+                margin: 20px;
+            }
+            div.date{
+                font-size: 18px;
+            }
+        </style>
     </head>
     <body>
-        <div class="header">
-            <h1 class="site-title text-center">
+        <div class="page-header">
+            <h1>
                 <a href="/">A Teddy's Jungo Life</a>
             </h1>
         </div>
-        <div class="container">
+        <div class="content container">
             {% for post in post_list %}
-            <div class="post-wrapper">
-                <div class="post">
-                    <div class="post-heading">
-                        <h2 class="title">
+            <div  class="post">
+                <div>
+                    <div>
+                        <h2>
                             <a href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a>
                         </h2>
                         <div class="date">{{post.created_date | date:"m/d/Y"}}</div>
                     </div>
                     {% if post.photo %}
-                     <div class="thumbnail">
-                        <img src="{{post.photo}}" alt="Shashin Nai">
+                    <div>
+                        <img src="{{post.photo}}" alt="{{ post.title }}" width="350px" height="250px">
                     </div>
                     {% else %}
-                    <div class="thumbnail thumbnail-default"></div>
+                    <div></div>
                     {% endif %}
-                    <div class="post-content read-more-block">
+                    <div>
                         {{post.content}}
                     </div>
-                    <div class="post-footer">
-                        <a class="read-more" href="{% url 'post_detail' pk=post.pk %}">
-                            Read More<i class="fa fa-arrow-right"></i>
+                    <div>
+                        <a href="{% url 'post_detail' pk=post.pk %}">
+                            Read More<i></i>
                         </a>
                     </div>
                 </div>
             </div>
             {% endfor %}
         </div>
+        <hr />
+        <footer>
+            <div>
+                <p>Thank you for coming!</p>
+                <p>Good Luck, and</p>
+                <p>Have a nice day (シ_ _)シ</p>
+            </div>
+        </footer>
     </body>
 <html>

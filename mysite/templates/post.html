@@ -1,32 +1,56 @@
 <!-- templates/post.html -->
+{% load staticfiles %}
 
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
-    <title>{{ post.title }} | A Teddy's Jungo Life</title>
-    <link href="//fonts.googleapis.com/css?family=Lemon" rel="stylesheet" type="text/css">
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="//djangogirlstaipei.github.io/assets/css/style.css" rel="stylesheet" type="text/css">
+    <title>{{ post.title }} | A Teddy's Jungo Life</title>    
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet"> 
+    <link rel="stylesheet" href="{% static 'css/walker.css' %}"/>
+    <style>
+        div.page-header > h1{
+            padding: 20px 20px 8px 20px;
+            margin-top: 0px;
+        }
+        div.page-header{
+            background-color: rgba(  241, 196, 15, 0.8);
+            margin-top: 0px;
+        }
+        h1, h2, h3, h4{
+            font-family: 'Righteous', cursive;
+        }
+        div > div.date{
+            font-size: 20px;
+        }
+        #postContent{
+            font-size: 22px;   
+        }
+        img{
+            display: block;
+            margin: auto;
+            width: 35%;
+        }
+    </style>
 </head>
 <body>
-    <div class="header">
-        <h1 class="site-title text-center">
+    <div class="page-header">
+        <h1>
             <a href="/">A Teddy's Jungo Life</a>
         </h1>
     </div>
-    <div class="container post post-detail">
-        <div class="post-heading">
-            <h1 class="title">{{ post.title }}</h1>
+    <div class="content container">
+        <div>
+            <h1>{{ post.title }}</h1>
             <div class="date">{{ post.created_date|date:' m/ d/ Y' }}</div>
         </div>
-        <div class="post-content">
+        <div id="postContent">
             {{ post.content }}
         </div>
-        <hr class="fancy-line">
-        <img class="photo" src="{{ post.photo }}" alt="Cover photo for {{ post.title }}">
+        <hr>
+        <img src="{{ post.photo }}" alt="Cover photo for {{ post.title }}" width="350px" height="250px">
     </div>
-    <script src="//maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&sensor=false"></script>
-    <script src="//djangogirlstaipei.github.io/assets/js/map.js"></script>
 </body>
 </html>
