@@ -1,0 +1,39 @@
+<!--base.html-->
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>A Teddy's Jungo Life</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet"> 
+        <link rel="stylesheet" href="{% static 'css/walker.css' %}"/> 
+        <style>
+            div.page-header > h1{
+                padding: 20px 20px 8px 20px;
+                margin-top: 0px;
+            }
+            div.page-header{
+                background-color: rgba(  241, 196, 15, 0.8);
+                margin-top: 0px;
+            }
+            h1, h2, h3, h4{
+                font-family: 'Righteous', cursive;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="page-header">
+            <h1>
+                <a href= "{% url 'post_new'%}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+                <a href="/">A Teddy's Jungo Life</a>
+            </h1>
+        </div>
+        <div  class="content container">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </body>
+<html>

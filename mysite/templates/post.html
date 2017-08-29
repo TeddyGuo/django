@@ -28,7 +28,7 @@
         #postContent{
             font-size: 22px;   
         }
-        img{
+        img, iframe{
             display: block;
             margin: auto;
             width: 35%;
@@ -49,6 +49,9 @@
         <div id="postContent">
             {{ post.content }}
         </div>
+        {% if user.is_authenticated %}
+        <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+        {% endif %}
         <hr>
         <img src="{{ post.photo }}" alt="Cover photo for {{ post.title }}" width="350px" height="250px">
     </div>
